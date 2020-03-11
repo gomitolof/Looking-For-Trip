@@ -1,0 +1,47 @@
+reset; # cancella dati memorizzati
+
+model looking_for_trip_Ven_Tor.mod; # carica il modello
+data looking_for_trip_cheap.dat; # carica i dati
+
+option solver cplex; # scelta del motore di ottimizzazione
+solve; # risolve il modello
+
+printf "---------------------------START---------------------------\n\n";
+printf "SCENARIO 1: sconto per Foggia";
+printf "\n\nParametri e variabili del modello\n";
+printf "Parametri: \n";
+printf "Numero di notti per box e destinazione: ";
+display N;
+printf "Extra inclusi nei box: "; 
+display Ex;
+printf "Costi per box: ";
+display C;
+print "Tasse di soggiorno:";
+display T;
+printf "Box comprati: ";
+display x;
+printf "Offerte attive\n";
+printf "Sconto Red/Black [z]: %s \n", 
+        if z==1 then "Sì" else "No";
+printf "Risparmio per sconto Blue: %d€\n", 5 * sum {j in D} (x['blue', j] * N['blue', j]);
+
+printf "Risparmio per sconto Foggia [w]: %.2f€\n", 0.35 * sum {i in B} (w[i] * C[i] * sum {j in D} (x[i, j]));
+
+printf "Totale risparmiato: %.2f€\n",
+			0.35 * sum {i in B} (w[i] * C[i] * sum {j in D} (x[i, j]))+5 * sum {j in D} (x['blue', j] * N['blue', j]) + 100*z;
+
+printf "Risultati\n";
+printf "Voli inclusi: %d \n", sum{i in B, j in D} (x[i, j] * Ex[i, 'volo']);
+
+printf "Costo totale: %.2f€\n", costo_totale;
+
+printf "Durata della vacanza (notti): %d\n", sum{i in B, j in D} (x[i, j] * N[i, j]);
+
+printf "Costo_totale/Durata_vacanza: %.2f\n", costo_totale/sum{i in B, j in D} (x[i, j] * N[i, j]);
+
+printf "Media recensioni: %.2f\n", (sum {j in D} (R[j] * sum {i in B} (N[i,j]*x[i, j])))/sum {i in B, j in D} (N[i,j]*x[i, j]); 
+
+printf "Tempo di esecuzione: %.3f s\n", _total_solve_time;
+printf "---------------------------END---------------------------\n";
+
+

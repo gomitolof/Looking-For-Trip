@@ -1,0 +1,51 @@
+#SCENARIO 1: sconto per Foggia, costo = 2665.80€
+#insiemi
+set B := white blue red green yellow black;
+set D := foggia cagliari venezia torino;
+set E := colazione cena volo wifi parcheggio;
+#parametri
+param N :	foggia		cagliari	venezia		torino :=
+white		5			0			4			6
+blue		0			4			0			5
+red			3			0			4			3
+green		3			3			2			2
+yellow		3			0			3			4
+black		0			3			2			3
+;
+param C :=
+white	600
+blue	500
+red		450
+green	350
+yellow	480
+black	350
+;
+param T :=
+foggia		2.8
+cagliari	3
+venezia		2.2
+torino		1.4
+;
+param Di :=
+white	3
+blue	2
+red		3
+green	4
+yellow	2
+black	3
+;
+param Ex :	colazione	cena	volo	wifi	parcheggio :=
+white		1			0		1		1		0
+blue		0			1		0		0		1
+red			1			0		0		1		1
+green		1			0		1		0		1
+yellow		0			1		0		1		0
+black		1			1		1		1		0
+;
+param R :=
+foggia		3.2
+cagliari	2.8
+venezia		4.5
+torino		2.7
+;
+param G := 30;

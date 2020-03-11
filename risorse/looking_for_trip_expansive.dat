@@ -1,0 +1,51 @@
+#SCENARIO 3: sconto Red/Black e sconto Blue, prezzo = 3701.8
+#insiemi
+set B := white blue red green yellow black;
+set D := foggia cagliari venezia torino;
+set E := colazione cena volo wifi parcheggio;
+#parametri
+param N :	foggia		cagliari	venezia		torino :=
+white		3			0			3			4
+blue		0			4			0			5
+red			1			0			2			2
+green		0			3			2			2
+yellow		2			0			3			3
+black		0			3			3			3
+;
+param C :=
+white	650
+blue	420
+red		480
+green	450
+yellow	550
+black	350
+;
+param T :=
+foggia		5
+cagliari	3
+venezia		2.6
+torino		1.4
+;
+param Di :=
+white	3
+blue	2
+red		3
+green	4
+yellow	2
+black	3
+;
+param Ex :	colazione	cena	volo	wifi	parcheggio :=
+white		1			1		0		1		0
+blue		0			1		0		0		1
+red			1			0		1		1		0
+green		1			0		1		0		1
+yellow		0			1		0		1		0
+black		1			1		0		1		1
+;
+param R :=
+foggia		2.8
+cagliari	2.6
+venezia		4.5
+torino		3.2
+;
+param G := 30;

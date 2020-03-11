@@ -1,0 +1,51 @@
+#SCENARIO 2: tutte e 3 le offerte attive, costo=2765.00€
+#insiemi
+set B := white blue red green yellow black;
+set D := foggia cagliari venezia torino;
+set E := colazione cena volo wifi parcheggio;
+#parametri
+param N :	foggia		cagliari	venezia		torino :=
+white		5			0			4			6
+blue		3			4			0			4
+red			5			0			4			4
+green		4			4			3			3
+yellow		4			0			3			4
+black		0			3			2			3
+;
+param C :=
+white	640
+blue	360
+red		530
+green	550
+yellow	430
+black	390
+;
+param T :=
+foggia		2.8
+cagliari	3
+venezia		2.4
+torino		1.4
+;
+param Di :=
+white	3
+blue	2
+red		3
+green	4
+yellow	2
+black	3
+;
+param Ex :	colazione	cena	volo	wifi	parcheggio :=
+white		1			0		0		1		1
+blue		0			1		1		0		1
+red			1			0		1		1		1
+green		1			0		1		1		1
+yellow		0			1		0		1		0
+black		1			1		0		1		1
+;
+param R :=
+foggia		4.5
+cagliari	2.8
+venezia		3.3
+torino		2.7
+;
+param G := 30;
